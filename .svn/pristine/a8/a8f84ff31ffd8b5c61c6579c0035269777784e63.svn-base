@@ -1,0 +1,70 @@
+
+<!-- saved from url=(0038)http://suiyidian.cn/texiao/cookie.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script type="text/javascript">
+function tj(){
+	var name=document.getElementById("name").value;
+	var value=document.getElementById("zhi").value;
+	var Days=document.getElementById("days").value;
+	if(name==""||name==null){
+		alert("没有设置")
+	}else{
+		SetCookie(name,value,Days);
+		alert(getCookie(name));
+	}
+}
+
+function SetCookie(name,value,Days)//两个参数，一个是cookie的名子，一个是值
+{
+    //var Days=30; //此 cookie 将被保存 30 天
+    var exp  = new Date();    //new Date("December 31, 9998");
+    exp.setTime(exp.getTime() + Days*24*60*60*1000);
+    var cookies = name+"="+escape(value)+"; expires="+exp.toGMTString()+"; path=/";//path是cookie的访问路径
+	document.cookie = cookies;	
+	alert(cookies);
+	alert("cookie = " + document.cookie);	
+}
+//取cookies函数  
+function getCookie(name)       
+{
+    var arr = document.cookie.match(new RegExp("(^| )"+name+"=([^;]*)(;|$)"));
+    if(arr != null) 
+		return unescape(arr[2]);
+    else 
+		return null;
+}
+
+//删除cookie
+function deleteCookie(name)
+{
+    var exp = new Date();
+    exp.setTime(exp.getTime() - 1);
+    var cval=getCookie(name);
+    if(cval!=null) 
+		document.cookie= name + "="+cval+";expires="+exp.toGMTString();
+}
+
+</script>
+<style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
+.en-markup-crop-options {
+    top: 18px !important;
+    left: 50% !important;
+    margin-left: -100px !important;
+    width: 200px !important;
+    border: 2px rgba(255,255,255,.38) solid !important;
+    border-radius: 4px !important;
+}
+
+.en-markup-crop-options div div:first-of-type {
+    margin-left: 0px !important;
+}
+</style></head>
+<body>
+设置Cookie名：<input type="text" id="name" value="">
+设置Cookie值：<input type="text" id="zhi" value="">
+设置Cookie有效期：<input type="text" id="days" value="">
+<input type="button" value="弹出值" onclick="tj()">
+<hr>
+<a href="http://blogs.suiyidian.cn/" title="返回首页">返回首页</a>
+
+<div id="GWDANG_HAS_BUILT"></div></body></html>

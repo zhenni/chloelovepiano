@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--head, body--s>
+<!--label: title script style link meta-->
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>My Website</title>
+<style type="text/css">
+h1{
+	font-size:20px;
+	color:#900;
+	text-align:center;
+}
+table tr td,th{border:1px solid #000;}
+.stress{color:red!important;}/*class selector can be used many times & use together*/
+/*览器默认的样式 < 网页制作者样式 < 用户自己设置的样式，但记住!important优先级样式是个例外，权值高于用户自己设置的样式。*/
+.bigsize{font-size:36px;}
+.first>span{color:#0FF;} /*child selector => direct children*/
+.first span{font-size:14px} /*后代selector => all children hierachily*/
+.stress, .bigsize{font-weight: normal;}
+#list{font-weight:bold;}/* id selector only once*/
+* {color:black;} /*all the thing in the html*/
+span:hover{color:pink;}
+
+/* 标签的权值为1，类选择符的权值为10，ID选择符的权值最高为100。
+p{color:red;} /*权值为1*
+p span{color:green;} /*权值为1+1=2*
+.warning{color:white;} /*权值为10*
+p span.warning{color:purple;} /*权值为1+1+10=12*
+#footer .note p{color:yellow;} /*权值为100+10+1=111**/
+
+/*层叠： 内联样式表（标签内部）> 嵌入样式表（当前文件中）> 外部样式表（外部文件中）。*/
+
+a{
+    display:inline-block;
+	width:300px;/*在默认情况下宽度不起作用*/
+	height:20px;/*在默认情况下高度不起作用*/
+	background:pink;/*设置背景颜色为粉色*/
+	text-align:center; /*设置文本居中显示*/
+}
+
+div{
+    width:400px;
+	height:200px;
+	border:5px solid red;
+	padding:20px 10px15px 30px; /*trbl 填充*/
+	margin:30px;
+/*在浏览器下，每一个html元素都会被解析为一个装有东西的盒子。盒子本身有自己的边框（border），盒子里的内容到盒子边框的距离称为填充（padding），盒子边框与其它盒子之间的距离为边界（margin）*/
+}
+p{border:2px dotted #ccc;}
+li{border-bottom:1px dotted #ccc;}
+
+/*CSS包含3种基本的布局模型，用英文概括为：Flow、Layer 和 Float*/
+/*浮动模型： div{float:left;}*/
+/*层模型--绝对定位 : 
+div{
+    position:absolute;
+    left:100px;
+    top:50px;
+}*/
+/*层模型--相对定位:
+div{ position:relative;
+    left:100px;
+    top:50px;}
+*/
+/*层模型--固定定位 : 
+div{position:fixed;
+    bottom:0;
+    right:0;}*/
+
+</style>
+<link href="style.css" rel="stylesheet" type="text/css" />
+
+
+</head>
+
+<body>
+<!--comment-->
+<h1 id = "hi"> Hello world </h1>
+<p class="first"> Hello!~ This is my first html website! <span style="color:blue; font-size:20px">Hi~</span> <span>span </span>  hi <span class="stress bigsize"> span try2 </span> </p>
+<img src="believe.jpg" />
+<div> <p> Have a try! <a href="#"> here </a> </p> </div>
+    <!-- target="_blank"-->
+<a href="mailto:zhenni94@163.com?subject=观了不起的盖茨比有感"&body="你好，对此评论有些想法">对此影评有何感想，发送邮件给我</a>
+
+<table summary="表格简介">
+  <caption>表格</caption>
+  <tr>
+    <th>班级</th>
+    <th>学生数</th>
+    <th>平均成绩</th>
+  </tr>
+  <tr>
+    <td>一班</td>
+    <td>30</td>
+    <td>89</td>
+  </tr>
+  <tr>
+    <td>二班</td>
+    <td>35</td>
+    <td>85</td>
+  </tr>
+  <tr>
+    <td>三班</td>
+    <td>32</td>
+    <td>80</td>
+  </tr>
+</table>
+
+<img src="http://img.mukewang.com/52da54ed0001ecfa04120172.jpg" alt="下载失败时替换文本" title="电影介绍"> 
+
+<br>
+
+<q> qu&nbsp;ote </q> <br />
+<blockquote> blockquote </blockquote>
+
+<hr />
+<address> address </address>
+<code> code; </code>
+
+<div id = "list">
+<ul>
+<li> no order 1</li>
+<li> no order 2</li>
+</ul>
+
+<ol>
+<li> ordered 1 </li>
+<li> ordered 2 </li>
+</ol>
+</div>
+
+<form method="post" action="save.php">
+      <label for="username">用户名:</label>
+      <input type="text"  name="username" value="" />
+      <label for="pass">密码:</label>
+      <input type="password"  name="pass" value="" />    
+      <input type="submit" value="确定"  name="submit" />
+      <input type="reset" value="重置" name="reset" />
+</form>
+
+<hr />
+
+<form  method="post" action="save.php">
+    账户: 
+	<input type="text" name="myName">
+	<br>
+	密码: 
+    <input type="password" name="pass">
+</form> 
+
+<hr />
+
+<form action="save.php" method="post" >
+    <label>个人简介：</label> <br />
+    <textarea cols="50" rows="10">在这里输入内容...</textarea>
+    <input type="submit" value="确定"  name="submit" />
+    <input type="reset" value="重置"  name="reset" />
+</form> 
+
+<hr />
+
+<form action="save.php" method="post" >
+    <label>性别:</label>
+    <label>男</label>
+    <input type="checkbox" value="1"  name="sex-man" checked = "checked" />
+    <label>女</label>
+    <input type="checkbox" value="2"  name="sex-woman" />
+	<br />
+    <label>性别:</label>
+    <label>男</label>
+    <input type="radio" value="1"  name="sex" checked = "checked"/>
+    <label>女</label>
+    <input type="radio" value="2"  name="sex" />
+    <!--checked 默认选项  单选的name需要相同， value是提交给后台hph等-->
+</form>
+
+<hr />
+
+
+<form action="save.php" method="post" >
+    <label>爱好:</label>
+    <select>
+      <option value="看书">看书</option>
+      <option value="旅游" selected="selected">旅游</option>
+      <option value="运动">运动</option>
+      <option value="购物">购物</option>
+    </select>
+</form>
+
+<hr />
+
+<form action="save.php" method="post" >
+    <label>爱好:</label>
+    <select multiple="multiple">
+      <option value="看书">看书</option>
+      <option value="旅游">旅游</option>
+      <option value="运动">运动</option>
+      <option value="购物">购物</option>
+    </select>
+</form>
+
+<!--Ctrl+单击： 下拉菜单多选-->
+
+
+
+
+  <p id="p1">我是第一段文字</p>
+  <p id="p2">我是第二段文字</p>
+  
+  <script type="text/javascript">
+    document.write("hello");
+	document.getElementById("p1").style.color="blue";
+  </script>
+
+</body>
+</html>
